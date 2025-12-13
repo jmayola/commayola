@@ -1,0 +1,59 @@
+@import "tailwindcss";
+@theme{
+  
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+h1,h2,h3,h4,h5,h6{
+  @apply text-left;
+}
+
+h1{
+  @apply text-9xl;
+}
+h2{
+  @apply text-4xl;
+}
+h3{
+  @apply text-2xl;
+}
+
+.line{
+  @apply text-lg ;
+}
+
+.card{
+  @apply w-16 h-16 bg-slate-900 transform-3d;
+}
+
+.font-console{
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 500;
+} 
+
+@keyframes typing{
+          0% {
+            width: "0%";
+            visibility: "hidden";
+          }
+          100% {
+            width: "100%";
+          }
+        }
+@keyframes blink {
+          50% {
+            borderColor: "transparent"
+          }
+          100% {
+            borderColor: "white"
+          }
+        }
+.typewriter { 
+  animation: typing 2s steps(20) infinite alternate, blink .7s infinite;
+}
