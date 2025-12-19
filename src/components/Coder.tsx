@@ -56,7 +56,7 @@ function Coder() {
     <ul className='h-full w-full grid grid-cols-3 gap-2 place-content-center justify-center place-items-center bg-zinc-700 my-1 rounded-lg p-3' ref={rootRef} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
       {
         cards.map((val)=>{
-    return <motion.li initial={{opacity: 1}} whileTap={{scale:0.8}} onFocus={handleOnFocus} className="card perspective-distant">{val}</motion.li>
+    return <motion.li initial={{opacity: 1}} whileTap={{scale:0.8}} className="card perspective-distant">{val}</motion.li>
         })
       }
     </ul>
