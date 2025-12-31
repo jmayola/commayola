@@ -18,7 +18,7 @@ const textVariants = {
 
 export default function Slider() {
   return (
-    <div className="w-full overflow-hidden py-10 bg-zinc-900">
+    <div className="w-full overflow-hidden py-1 bg-zinc-900">
       <div className="flex w-max">
         <MarqueeContent />
         <MarqueeContent />
@@ -31,11 +31,11 @@ function MarqueeContent() {
   return (
     <motion.ul
       className="flex shrink-0 items-center gap-16 pr-16"
-      initial={{ x: "-100%" }}
-      animate={{ x: "0" }}
+      initial={{ x: "0%" }}
+      animate={{ x: "-100%" }}
       transition={{
         duration: 40,
-        ease: "easeInOut",
+        ease: "linear",
         repeat: Infinity,
       }}
     >
@@ -48,7 +48,7 @@ function MarqueeContent() {
 
 function AnimatedItem({ text }: { text: string }) {
   return (
-    <li className="text-6xl text-lime-100 shrink-0 font-sans">
+    <li className="text-xl text-lime-100 shrink-0 font-sans">
       <motion.span
         className="inline-flex items-center gap-4" // gap-4 para separar asteriscos
         variants={textVariants}

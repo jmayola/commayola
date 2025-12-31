@@ -7,11 +7,11 @@
   text-align: center;
 
 }
-
+/* 
 h1,h2,h3,h4,h5,h6{
   @apply text-left;
-}
-
+} */
+/* 
 h1{
   @apply text-9xl;
 }
@@ -20,7 +20,7 @@ h2{
 }
 h3{
   @apply text-2xl;
-}
+} */
 
 .line{
   @apply text-lg ;
@@ -54,4 +54,15 @@ h3{
         }
 .typewriter { 
   animation: typing 2s steps(20) infinite alternate, blink .7s infinite;
+}
+
+.title {
+  @apply text-5xl font-semibold text-center ;
+}
+
+.subtitle {
+  @apply text-4xl font-semibold text-center ;
+}
+.description{
+  @apply text-3xl font-semibold text-center ;
 }

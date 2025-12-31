@@ -46,12 +46,12 @@ export default function HeroAnimatedBackground() {
   }, [animate]);
 
   return (
-    <div className="absolute inset-0 overflow-hidden -z-10 bg-slate-950/50">
+    <div className="absolute inset-0 overflow-hidden -z-10 bg-linear-to-b h-screen from-slate-950 to-slate-900 ">
       <motion.ul ref={scope} className="relative w-full h-full">
         {icons.map((Icon, index) => (
           <motion.li
             key={index}
-            className="absolute text-slate-500 will-change-transform"
+            className="absolute opacity-0 text-slate-500 will-change-transform"
           >
             <Icon strokeWidth={1.5} size={42} />
           </motion.li>
