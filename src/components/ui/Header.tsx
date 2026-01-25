@@ -18,10 +18,9 @@ const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
 
-  // Detectar scroll para cambiar la opacidad del header
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 10);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -34,12 +33,11 @@ const Header: React.FC = () => {
       transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
       className={`fixed top-0 max-w-screen left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-zinc-950/80 backdrop-blur-md border-b border-white/5 py-3"
+          ? "bg-zinc-950/80 backdrop-blur-md py-3"
           : "bg-transparent py-6"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between">
-        {/* LOGO */}
         <div className="flex items-center gap-2 cursor-pointer z-50">
             <motion.div
                  whileHover={{ scale: 1.05 }}
@@ -49,19 +47,16 @@ const Header: React.FC = () => {
             </motion.div>
         </div>
 
-        {/* DESKTOP NAV */}
         <nav className="hidden md:flex items-center gap-8">
           {navItems.map((item) => (
             <NavLink key={item.name} item={item} />
           ))}
         </nav>
 
-        {/* CTA BUTTON (Estilo heredado de tu SectionSelector) */}
         <div className="hidden md:block">
           <CTAButton>Contactar</CTAButton>
         </div>
 
-        {/* MOBILE TOGGLE */}
         <div className="md:hidden z-50">
           <motion.button
             whileTap={{ scale: 0.9 }}
@@ -72,14 +67,11 @@ const Header: React.FC = () => {
           </motion.button>
         </div>
 
-        {/* MOBILE MENU OVERLAY */}
         <MobileMenu isOpen={isMobileOpen} />
       </div>
     </motion.header>
   );
 };
-
-// --- Subcomponentes para mantener el código limpio ---
 
 const NavLink = ({ item }: { item: NavItem }) => (
   <motion.a
@@ -89,7 +81,7 @@ const NavLink = ({ item }: { item: NavItem }) => (
   >
     {item.name}
     <motion.span
-      className="absolute -bottom-1 left-0 w-full h-[2px] bg-zinc-500 origin-left"
+      className="absolute -bottom-1 left-0 w-full h-0.5 bg-zinc-500 origin-left"
       variants={{
         hover: { scaleX: 1 },
       }}
@@ -99,7 +91,6 @@ const NavLink = ({ item }: { item: NavItem }) => (
   </motion.a>
 );
 
-// Botón reutilizando el estilo de tu SectionSelector (bg-zinc-900 + border-b-4)
 const CTAButton = ({ children }: { children: React.ReactNode }) => (
   <motion.button
     initial={{ scale: 1 }}

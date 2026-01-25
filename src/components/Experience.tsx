@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import * as motion from "motion/react-client";
 import { AnimatePresence } from "motion/react";
-import HeroAnimatedBackground from "./HeroBackground";
 import Note from "./ui/Note";
 import Notes from "./Notes";
-
 const tabs = [
   {
     id: 0,
@@ -28,17 +26,15 @@ const tabs = [
     label: "Proyectos",
     color: "bg-zinc-800",
     content: (
-      <div className="space-y-4">
+      <div className="space-y-4 sdasdh-[300px]">
         <h2 className="text-2xl font-bold text-white">Proyectos Destacados</h2>
         <p className="text-zinc-400">
           Prueba ahora.
         </p>
-        <div className="grid grid-cols-2 gap-4">
-        <Note title='Classplanner' desc='hola mundo'></Note>
-
-          <div className="h-20 bg-zinc-700/50 rounded-lg animate-pulse" />
-
-          <div className="h-20 bg-zinc-700/50 rounded-lg animate-pulse" />
+        <div className="grid md:grid-cols-2 grid-cols-1 lg:grid-cols-3 gap-4 place-content-center">
+        <Note desc='Administrador de clases el con mejor manejo de datos y velocidad, de estudiantes y profesores para estudiantes y profesores.' img="/classplanner_logo.png"></Note>
+        <Note desc='Pagina profesional disenhada a medida, con animaciones y disenho moderno.' img="/raptor_logo.png"></Note>
+        <Note title='PowerRush' desc='Catalogo de ropa con carrito de compras y facturacion.' img="/vite.svg"></Note>
         </div>
       </div>
     ),
@@ -49,8 +45,8 @@ export default function Experience() {
   const [activeTab, setActiveTab] = useState(0);
 
   return (
-    <div className="w-full h-screen flex flex-col md:flex-col items-center md:items-baseline justify-center p-10">
-      <div className="w-full max-w-3xl relative">
+    <div className="w-full flex min-h-[400px] flex-col md:flex-col items-center md:items-baseline justify-center p-10">
+      <div className="w-fit min-w-3xl relative">
         <div className="flex pl-4 space-x-[-10px]">
           {tabs.map((tab) => {
             const isActive = activeTab === tab.id;
@@ -81,7 +77,7 @@ export default function Experience() {
 
         <motion.div
           layout
-          className="relative z-10 w-full bg-zinc-800 p-8 rounded-b-2xl rounded-tr-2xl shadow-2xl min-h-[300px]"
+          className="relative z-10 w-full overflow-hidden bg-zinc-800 p-8 rounded-b-2xl rounded-tr-2xl shadow-2xl"
         >
           <AnimatePresence mode="wait">
             <motion.div
@@ -90,6 +86,7 @@ export default function Experience() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.2 }}
+              className="overflow-scroll w-full"
             >
               {tabs[activeTab].content}
             </motion.div>
